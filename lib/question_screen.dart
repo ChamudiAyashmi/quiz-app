@@ -4,7 +4,10 @@ import 'package:quize_app/models/quiz_question.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen(
-      {super.key, required this.onAnswer, required this.onAction,required this.questions});
+      {super.key,
+      required this.onAnswer,
+      required this.onAction,
+      required this.questions});
 
   final Function(String value) onAction;
   final Function(String value) onAnswer;
@@ -41,9 +44,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              widget.questions[currentQuestionIndex].question,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white, fontSize: 28),
+              '${currentQuestionIndex + 1}) ${widget.questions[currentQuestionIndex].question}',
+              textAlign: TextAlign.left,
+              style: const TextStyle(color: Colors.black, fontSize: 25),
+            ),
+            const SizedBox(
+              height: 18,
             ),
             ...widget.questions[currentQuestionIndex]
                 .getRandonAnswers()
@@ -61,7 +67,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 },
                 child: const Text(
                   'Back to Start',
-                  style: TextStyle(fontSize: 18, color: Colors.amber),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ))
           ],
         ),
