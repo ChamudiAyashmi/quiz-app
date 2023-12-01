@@ -44,9 +44,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              '${currentQuestionIndex + 1}) ${widget.questions[currentQuestionIndex].question}',
+              'Question No : ${currentQuestionIndex + 1}',
+              style: const TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 1, 116, 209)),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              widget.questions[currentQuestionIndex].question,
               textAlign: TextAlign.left,
-              style: const TextStyle(color: Colors.black, fontSize: 25),
+              style: const TextStyle(color: Colors.black, fontSize: 23),
             ),
             const SizedBox(
               height: 18,
@@ -65,6 +75,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 onPressed: () {
                   widget.onAction('start');
                 },
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black)),
                 child: const Text(
                   'Back to Start',
                   style: TextStyle(fontSize: 20, color: Colors.white),
